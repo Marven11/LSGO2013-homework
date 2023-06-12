@@ -43,7 +43,7 @@ double random_between(double low, double high) {
 }
 
 const u32 GA_CREATURE_NUM = 500;
-const u32 GA_ITER_NUM = 15000;
+const u32 GA_ITER_NUM = 5000;
 const u32 GA_PRINT_INTERVAL = 200;
 const double GA_INIT_LOW = -10;
 const double GA_INIT_HIGH = 10;
@@ -478,14 +478,14 @@ int main()
     double *X;
     u32 dim = 1000;
     
-    // std::shared_ptr<Evaluater<F1>> ev = std::make_shared<Evaluater<F1>>(GA_CREATURE_NUM);
-    // std::shared_ptr<GA<F1>> op = std::make_shared<GA<F1>>(ev, dim);
+    // std::shared_ptr<Evaluater< F15 >> ev = std::make_shared<Evaluater< F15 >>(GA_CREATURE_NUM);
+    // std::shared_ptr<GA< F15 >> op = std::make_shared<GA< F15 >>(ev, dim);
 
-    // std::shared_ptr<Evaluater<F1>> ev = std::make_shared<Evaluater<F1>>(PSO_PARTICAL_NUM);
-    // std::shared_ptr<PSO<F1>> op = std::make_shared<PSO<F1>>(ev, dim);
+    // std::shared_ptr<Evaluater< F15 >> ev = std::make_shared<Evaluater< F15 >>(PSO_PARTICAL_NUM);
+    // std::shared_ptr<PSO< F15 >> op = std::make_shared<PSO< F15 >>(ev, dim);
 
-    std::shared_ptr<Evaluater<F1>> ev = std::make_shared<Evaluater<F1>>(DE_CREATURES_NUM);
-    std::shared_ptr<DE<F1>> op = std::make_shared<DE<F1>>(ev, dim);
+    std::shared_ptr<Evaluater< F15 >> ev = std::make_shared<Evaluater< F15 >>(DE_CREATURES_NUM);
+    std::shared_ptr<DE< F15 >> op = std::make_shared<DE< F15 >>(ev, dim);
 
     X = new double[dim];
     op -> run(X);
@@ -495,7 +495,7 @@ int main()
         cout << X[i] << " ";
     }
     cout << endl;
-    cout << "F1(X): " << ev -> evalOne(X) << endl;                                      
+    cout << " F15 (X): " << ev -> evalOne(X) << endl;                                      
 
     // X = new double[dim];
     // double ans_sum = 0;
@@ -505,9 +505,9 @@ int main()
     //     ans_sum += ev -> evalOne(X);
     //     cout << "ans=" << ans_sum / (times + 1) << endl;
     // }
-    // cout << "F1(X): " << ans_sum / times << endl;
+    // cout << " F15 (X): " << ans_sum / times << endl;
 
-    std::ofstream output_file("output-PSO-F1.txt");
+    std::ofstream output_file("output-DE-F15.txt");
 
     if (output_file.is_open()) { 
         for (u32 i = 0; i < dim; i++)
@@ -525,7 +525,7 @@ int main()
         X[i] = 0;
     }
 
-    cout << "F1(0): " << ev -> evalOne(X) << endl;
+    cout << " F15 (0): " << ev -> evalOne(X) << endl;
 
     return 0;
 }
